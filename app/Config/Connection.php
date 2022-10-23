@@ -12,7 +12,7 @@ use PDOException;
      public static function getConnection() {
         try {
 			if(!self::$instance) {
-                self::$instance = new PDO('mysql:host=18.118.111.187;dbname=confeitaria', 'root', 'Dudu@18?#');
+                self::$instance = new PDO('mysql:host=3.17.196.85;dbname=confeitaria', 'root', 'Dudu@18?#');
                 self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             }
 		} catch (PDOException $e) {
