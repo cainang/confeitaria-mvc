@@ -4,9 +4,14 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitca5ccc36321cac6cad5a04cdb9ac0e60
+class ComposerStaticInit2bda0f4ee2c53f26b40f704be20644fe
 {
     public static $prefixLengthsPsr4 = array (
+        'W' => 
+        array (
+            'WilliamCosta\\DotEnv\\' => 20,
+            'WilliamCosta\\DatabaseManager\\' => 29,
+        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -14,6 +19,14 @@ class ComposerStaticInitca5ccc36321cac6cad5a04cdb9ac0e60
     );
 
     public static $prefixDirsPsr4 = array (
+        'WilliamCosta\\DotEnv\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/william-costa/dot-env/src',
+        ),
+        'WilliamCosta\\DatabaseManager\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/william-costa/database-manager/src',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -27,9 +40,9 @@ class ComposerStaticInitca5ccc36321cac6cad5a04cdb9ac0e60
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitca5ccc36321cac6cad5a04cdb9ac0e60::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitca5ccc36321cac6cad5a04cdb9ac0e60::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitca5ccc36321cac6cad5a04cdb9ac0e60::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit2bda0f4ee2c53f26b40f704be20644fe::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit2bda0f4ee2c53f26b40f704be20644fe::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit2bda0f4ee2c53f26b40f704be20644fe::$classMap;
 
         }, null, ClassLoader::class);
     }

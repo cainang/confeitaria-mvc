@@ -71,7 +71,7 @@ class Router{
                 throw new Exception("Método não permitido", 405);
             }
         }
-        throw new Exception("URL não encontrada", 404);
+        throw new \Exception("URL não encontrada", 404);
         return false;
     }
 
@@ -80,7 +80,7 @@ class Router{
             $route = $this->getRoute();
 
             if(!isset($route['controller'])){
-                throw new Exception("URL não pôde ser processada", 500);
+                throw new \Exception("URL não pôde ser processada", 500);
             }
 
             $args = [];

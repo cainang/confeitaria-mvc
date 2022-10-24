@@ -1,4 +1,8 @@
-RewriteEngine on
+RewriteEngine On
 
-RewriteCond %{RESQUEST_FILENAME} !-f
-RewriteRule ^{.*}$ ./index.php [QSA,NC]
+RewriteCond %{THE_REQUEST} \s/+index\.php\?([^\s&]+) [NC]
+RewriteRule ^ %1? [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/?$ index.php?$1 [L,QSA]

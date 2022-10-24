@@ -9,4 +9,10 @@
         }
     ]);
 
+    $obRouter->get('/bolos', [
+        function(){
+            return new Response(200, Pages\Bolos::getBolos());
+        }
+    ]);
+
 ?>
