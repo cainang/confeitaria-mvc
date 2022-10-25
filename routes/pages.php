@@ -15,6 +15,12 @@
         }
     ]);
 
+    $obRouter->get('/recuperacao', [
+        function(){
+            return new Response(200, Pages\Recuperacao::getRecuperacao());
+        }
+    ]);
+    
     $obRouter->get('/bolos', [
         'middlewares' => [
             'maintenance'
