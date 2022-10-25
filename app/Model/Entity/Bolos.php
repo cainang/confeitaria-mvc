@@ -9,6 +9,6 @@ class Bolos {
     public $descricao;
 
     static public function getBolos($where = null, $order = null, $limit = null, $fields = '*') {
-        return (new Database('depoimentos'))->select($where, $order, $limit, $fields);
+        return (new Database('BOLOS'))->select($where, $order, $limit, $fields);
     }
 }

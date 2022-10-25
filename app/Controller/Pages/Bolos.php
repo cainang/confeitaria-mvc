@@ -12,21 +12,16 @@
             $results = BolosEntity::getBolos(null, 'id DESC');
 
             while($obBolos = $results->fetchObject(BolosEntity::class)){
-                var_dump($obBolos);
+                $itens .= View::render('pages/bolos/itens', [
+                    'nome' => $obBolos->nome,
+                    'desc' => $obBolos->descricao
+                ]);
             }
 
             return $itens;
         }
             
         public static function getBolos(){
-            /* $con = new Connection();
-            $con = $con->getConnection();
-
-            $sql = "SELECT * FROM BOLOS";
-
-            $rs = $con->prepare($sql);
-            $rs->execute();
-            $result = $rs->fetchAll(PDO::FETCH_ASSOC); */
             
             $content = View::render('pages/bolos', [
                 'itens' => self::getBolosItens()

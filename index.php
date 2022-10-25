@@ -8,6 +8,7 @@
     use \App\Utils\View;
     use \WilliamCosta\DotEnv\Environment;
     use \WilliamCosta\DatabaseManager\Database;
+    use \App\Http\Middleware\Queue;
 
     Environment::load(__DIR__);
 
@@ -25,9 +26,20 @@
         'URL' => URL
     ]);
 
+    Queue::setMap([
+        'maintenance' => \App\Http\Middleware\Maintenance::class,
+        'require-admin-logout' => \App\Http\Middleware\RequireAdminLogout::class,
+        'require-admin-login' => \App\Http\Middleware\RequireAdminLogin::class
+    ]);
+
+    Queue::setDefault([
+        'maintenance'
+    ]);
+
     $obRouter = new Router(URL);
 
     include __DIR__ . '/routes/pages.php';
+    include __DIR__ . '/routes/admin.php';
 
     $obRouter->run()->sendResponse();
 

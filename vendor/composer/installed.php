@@ -3,7 +3,7 @@
         'name' => 'teste/mvc',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'a60c688e294de0fa6f881e71c264683e34aa1e06',
+        'reference' => '1e87b14b1092afd769c47541858e796ce035b8df',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'teste/mvc' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'a60c688e294de0fa6f881e71c264683e34aa1e06',
+            'reference' => '1e87b14b1092afd769c47541858e796ce035b8df',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

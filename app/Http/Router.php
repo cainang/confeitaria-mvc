@@ -2,6 +2,8 @@
 
 namespace App\Http;
 
+use \App\Http\Middleware\Queue;
+
 class Router{
     private $url = '';
     private $prefix = '';
@@ -9,7 +11,7 @@ class Router{
     private $request;
     
     public function __construct($url){
-        $this->request = new Request();
+        $this->request = new Request($this);
         $this->url = $url;
         $this->setPrefix();
     }
@@ -27,7 +29,10 @@ class Router{
                 continue;
             }
         }
+        
+        $params['middlewares'] = $params['middlewares'] ?? [];
         $params['variables'] = [];
+
         $patternRoute = preg_replace('(\{[a-z0-9]{1,}\})', '([a-z0-9-]{1,})', $route);
         $patternRoute = '/^' . str_replace('/', '\/', $patternRoute) . '$/i';
         $this->routes[$patternRoute][$method] = $params;
@@ -68,7 +73,7 @@ class Router{
                     return $methods[$httpMethod];
                 }
 
-                throw new Exception("Método não permitido", 405);
+                throw new \Exception("Método não permitido", 405);
             }
         }
         throw new \Exception("URL não encontrada", 404);
@@ -91,9 +96,17 @@ class Router{
                 $args[$name] = $route['variables'][$name] ?? '';
             }
 
-            return call_user_func_array($route['controller'], $args);
+            return (new Queue($route['middlewares'], $route['controller'], $args))->next($this->request);
         } catch (\Exception $e) {
             return new Response($e->getCode(), $e->getMessage());
         }
+    }
+
+    public function redirect($route) {
+        $url = $this->url.$route;
+
+        header('location: '.$url);
+        
+        exit;
     }
 }
