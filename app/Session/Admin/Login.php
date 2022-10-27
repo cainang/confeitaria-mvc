@@ -14,8 +14,10 @@ class Login {
         self::init();
 
         $_SESSION['admin']['user'] = [
+            'id' => $obUser->id,
             'nome' => $obUser->nome,
-            'email' => $obUser->email
+            'email' => $obUser->email,
+            'ativo' => $obUser->ativo,
         ];
 
         return true;

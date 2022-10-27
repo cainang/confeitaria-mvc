@@ -9,12 +9,6 @@
         }
     ]);
 
-    $obRouter->get('/teste', [
-        function(){
-            return new Response(200, Pages\Teste::getTeste());
-        }
-    ]);
-
     $obRouter->get('/recuperacao', [
         function(){
             return new Response(200, Pages\Recuperacao::getRecuperacao());

@@ -35,7 +35,7 @@
             'require-admin-logout'
         ],
         function($request){
-            return new Response(200, Admin\Login::setLogin($request));
+            return new Response(200, Admin\Login::setPostLogin($request));
         }
     ]);
 

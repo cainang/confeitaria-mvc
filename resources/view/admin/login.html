@@ -1,5 +1,31 @@
-<form action="" method="post">
-    <input type="text" name="email" id="">
-    <input type="text" name="senha" id="">
-    <input type="submit" value="Entrar">
-</form>
+<main>
+    
+    <div id="container" data-togglelogin="login">
+        <section id="left">
+            <h1>{{dinamico}}</h1>
+            <div id="form">
+                <form action="" method="post">
+                    <div id="placeToName">
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" id="nome" placeholder="NOME COMPLETO">
+                    </div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="EMAIL" required>
+                    <label for="senha">Senha</label>
+                    <input type="password" name="senha" id="senha"  placeholder="SENHA" required>
+                    <input id="submit" type="submit" value="{{dinamico}}">
+                    <button id="cadastro-hidden" type="button">CADASTRE-SE</button>
+                    <button id="recuperacao" type="button">Recuperar Senha</button>
+                </form>
+            </div>
+        </section>
+        <section id="right">
+            <div id="right-content">
+                <h1>{{dinamico}}</h1>
+                <span>{{dinamico}}</span>
+                <button id="cadastre-se" type="button">{{dinamico}}</button>
+            </div>
+        </section>
+    </div>
+
+</main>
