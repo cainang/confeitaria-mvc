@@ -4,7 +4,7 @@ let container = document.querySelector('#container');
 let recoveryButton = document.querySelector('#recuperacao');
 
 cadButton.onclick = handleCadastro;
-cadButtonResponsive.onclick = () => changeTo('cadastro', true);;
+cadButtonResponsive.onclick = () => changeTo('cadastro', true);
 recoveryButton.onclick = handleRecovery;
 
 let content = [
