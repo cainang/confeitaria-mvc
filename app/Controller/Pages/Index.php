@@ -6,13 +6,14 @@
 
     class Index {
             
-        public static function getindex($title, $content, $css = '', $js = '', $alert = ''){
+        public static function getindex($title, $content, $css = '', $js = '', $alert = []){
             return View::render('pages/index', [
                 'title' => $title,
                 'content' => $content,
                 'css' => $css,
                 'script' => $js,
-                'alert' => $alert
+                'alert' => $alert['alert'] ?? '',
+                'alertJs' => $alert['alertJs'] ?? ''
             ]);
         }
     

@@ -10,7 +10,7 @@ use \App\Controller\Pages\Components\Alert;
 
 class Login extends Index {
     
-    public static function getLogin($request, $alert = '') {
+    public static function getLogin($request, $alert = []) {
         $content = View::render('admin/login', []);
         $css = View::getStyleView('login');
         $js = View::getScriptView('login');
@@ -27,8 +27,13 @@ class Login extends Index {
         $obUser = User::createUser($email, $senha, $nome);
 
         if(!$obUser instanceof User){
-            $alert = '';
-            return self::getLogin($request, $alert);
+            $alert = Alert::getAlert('Erro ao fazer cadastro, por favor tente novamente!', 'erro');
+            $alertJs = Alert::getAlertScript();
+
+            return self::getLogin($request, [
+                'alert' => $alert,
+                'alertJs' => $alertJs
+            ]);
         }
 
         self::setSession($obUser, $request);
@@ -42,9 +47,13 @@ class Login extends Index {
         $obUser = User::getUserByEmail($email);
         
         if(!$obUser instanceof User || !password_verify($senha, $obUser->senha)){
-            $alert = Alert::getAlert('teste alert');
+            $alert = Alert::getAlert('Email ou Senha Incorretos!', 'sucesso');
+            $alertJs = Alert::getAlertScript();
 
-            return self::getLogin($request, $alert);
+            return self::getLogin($request, [
+                'alert' => $alert,
+                'alertJs' => $alertJs
+            ]);
         }
 
         self::setSession($obUser, $request);

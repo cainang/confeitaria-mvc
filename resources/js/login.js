@@ -1,14 +1,17 @@
 let cadButton = document.querySelector('#cadastre-se');
+let cadButtonResponsive = document.querySelector('#cadastro-hidden');
 let container = document.querySelector('#container');
 let recoveryButton = document.querySelector('#recuperacao');
 
 cadButton.onclick = handleCadastro;
+cadButtonResponsive.onclick = () => changeTo('cadastro', true);;
 recoveryButton.onclick = handleRecovery;
 
 let content = [
     {
         titulo: 'ENTRAR',
         buttonActionLabel: 'ENTRAR',
+        recoveryButton: 'Recuperar Senha',
         aside: {
             titulo: 'SEJA BEM VINDO',
             description: 'AINDA NÃO TEM UMA CONTA?',
@@ -28,6 +31,7 @@ let content = [
         titulo: 'RECUPERAÇÃO DE SENHA',
         description: 'UM EMAIL DE RECULPERAÇÃO SERÁ ENVIADO PARA',
         buttonActionLabel: 'ENVIAR EMAIL',
+        recoveryButton: 'Já Recuperou? Entre na sua conta!',
         aside: {
             titulo: 'TENTE LOGAR NOVAMENTE',
             description: 'ENTRE NA SUA CONTA!',
@@ -38,12 +42,7 @@ let content = [
 
 function toggleContainerContent() {
     let titulo = document.querySelector('#container h1');
-    let buttonAction = document.querySelector('#container #submit');
-    let tituloAside = document.querySelector('#container #right h1');
-    let descriptionAside = document.querySelector('#container #right span');
-    let buttonActionAside = document.querySelector('#container #right button');
-    let rightContainerName = document.querySelector('#placeToName');  
-    let rightNameInput = document.querySelector('#placeToName input');  
+    let rightContainerName = document.querySelector('#placeToName'); 
     let form = document.querySelector('form');  
     container = document.querySelector('#container');
     let inputSenha = document.querySelector('#senha');
@@ -59,30 +58,17 @@ function toggleContainerContent() {
     }
 
     if (container.getAttribute('data-togglelogin') == 'login') {
-        titulo.innerHTML = content[0].titulo;
-        buttonAction.value = content[0].buttonActionLabel;
-
-        tituloAside.innerHTML = content[0].aside.titulo;
-        descriptionAside.innerHTML = content[0].aside.description;
-        buttonActionAside.innerHTML = content[0].aside.buttonActionLabel;
+        changeTo('login');
 
         recoveryButton.style.display = 'inline-block';
         
         rightContainerName.style.display = 'none';
-        rightNameInput.removeAttribute('required');
         form.setAttribute('action', '');
     } else if (container.getAttribute('data-togglelogin') == 'cadastro') {
-        titulo.innerHTML = content[1].titulo;
-        buttonAction.value = content[1].buttonActionLabel;
-
-        recoveryButton.style.display = 'none';
-
-        tituloAside.innerHTML = content[1].aside.titulo;
-        descriptionAside.innerHTML = content[1].aside.description;
-        buttonActionAside.innerHTML = content[1].aside.buttonActionLabel;
+        changeTo('cadastro');
         
+        recoveryButton.style.display = 'none';
         rightContainerName.style.display = 'flex';
-        rightNameInput.setAttribute('required', 'true');
         form.setAttribute('action', '?cad');
     } else if (container.getAttribute('data-togglelogin') == 'recovery') {
         inputSenha.style.display = 'none';
@@ -97,17 +83,11 @@ function toggleContainerContent() {
 
         titulo.insertAdjacentHTML('afterend', descriptionRecovery.outerHTML);
 
-        recoveryButton.style.display = 'none';
+        recoveryButton.style.display = 'none'
 
-        titulo.innerHTML = content[2].titulo;
-        buttonAction.value = content[2].buttonActionLabel;
-
-        tituloAside.innerHTML = content[2].aside.titulo;
-        descriptionAside.innerHTML = content[2].aside.description;
-        buttonActionAside.innerHTML = content[2].aside.buttonActionLabel;
+        changeTo('recovery');
         
         rightContainerName.style.display = 'none';
-        rightNameInput.removeAttribute('required');
     }
 }
 
@@ -127,9 +107,6 @@ function handleCadastro(){
         rightContainer.className = 'onAnimationToLoginRight';
     } else if (container.getAttribute('data-togglelogin') == 'recovery') {
         container.setAttribute('data-togglelogin', 'login');
-        
-        /* leftContainer.className = 'onAnimationToLoginLeft';
-        rightContainer.className = 'onAnimationToLoginRight'; */
         toggleContainerContent();
     }
     setTimeout(() => {
@@ -139,8 +116,60 @@ function handleCadastro(){
 }
 
 function handleRecovery() {
-    container.setAttribute('data-togglelogin', 'recovery');
+    if (container.getAttribute('data-togglelogin') == 'recovery') {
+        container.setAttribute('data-togglelogin', 'login');
+    } else if (container.getAttribute('data-togglelogin') == 'login'){
+        container.setAttribute('data-togglelogin', 'recovery');
+    }
     toggleContainerContent();
+}
+
+function changeTo(target, responsive = false) {
+    let titulo = document.querySelector('#container h1');
+    let buttonAction = document.querySelector('#container #submit');
+    let tituloAside = document.querySelector('#container #right h1');
+    let descriptionAside = document.querySelector('#container #right span');
+    let buttonActionAside = document.querySelector('#container #right button');
+    
+    let rightNameInput = document.querySelector('#placeToName input');  
+
+    if(target == 'login') {
+        titulo.innerHTML = content[0].titulo;
+        buttonAction.value = content[0].buttonActionLabel;
+
+        tituloAside.innerHTML = content[0].aside.titulo;
+        descriptionAside.innerHTML = content[0].aside.description;
+        buttonActionAside.innerHTML = content[0].aside.buttonActionLabel;
+        recoveryButton.innerHTML = content[0].recoveryButton;
+
+        cadButtonResponsive.innerHTML = 'CADASTRE-SE';
+        container.setAttribute('data-togglelogin', 'login');
+        rightNameInput.removeAttribute('required');
+        responsive && (cadButtonResponsive.onclick = () => changeTo('cadastro', true));
+    } else if(target == 'cadastro') {
+        titulo.innerHTML = content[1].titulo;
+        buttonAction.value = content[1].buttonActionLabel;
+        
+        tituloAside.innerHTML = content[1].aside.titulo;
+        descriptionAside.innerHTML = content[1].aside.description;
+        buttonActionAside.innerHTML = content[1].aside.buttonActionLabel;
+
+        cadButtonResponsive.innerHTML = 'ENTRAR';
+        container.setAttribute('data-togglelogin', 'cadastro');
+        rightNameInput.setAttribute('required', 'true');
+        responsive && (cadButtonResponsive.onclick = () => changeTo('login', true));
+    } else if(target == 'recovery') {
+        titulo.innerHTML = content[2].titulo;
+        buttonAction.value = content[2].buttonActionLabel;
+
+        tituloAside.innerHTML = content[2].aside.titulo;
+        descriptionAside.innerHTML = content[2].aside.description;
+        buttonActionAside.innerHTML = content[2].aside.buttonActionLabel;
+        recoveryButton.innerHTML = content[2].recoveryButton;
+
+        cadButtonResponsive.style.display = 'none';
+        rightNameInput.removeAttribute('required');
+    }
 }
 
 function handleRecoverySubmit(e) {
