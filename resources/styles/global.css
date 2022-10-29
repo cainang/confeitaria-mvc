@@ -43,6 +43,67 @@
     transform: translateX(0px);
 }
 
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 191px;
+    height: 289px;
+
+    box-shadow: 0px 0px 10px rgba(156, 42, 67, 0.12);
+    border-radius: 5px;
+}
+
+.card img {
+    width: 191px;
+    height: 140px;
+    border-radius: 5px 5px 0 0;
+    object-fit: cover;
+}
+
+.card .card-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    gap: 10px;
+}
+
+.card .card-body #titulo {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+}
+
+.card .card-body #preco {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 29px;
+    text-align: center;
+
+    color: #505D68;
+}
+
+.card .card-body button {
+    border: 1px solid #842A3E;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 10px 35px;
+    color: #842A3E;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.card .card-body button:hover {
+    background-color: #842A3E;
+    color: #fff;
+}
+
 @keyframes animationAlertIn {
     from {
         opacity: 0;

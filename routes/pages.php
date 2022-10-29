@@ -16,11 +16,8 @@
     ]);
     
     $obRouter->get('/bolos', [
-        'middlewares' => [
-            'maintenance'
-        ],
-        function(){
-            return new Response(200, Pages\Bolos::getBolos());
+        function($request){
+            return new Response(200, Pages\Bolos::getBolos($request));
         }
     ]);
 

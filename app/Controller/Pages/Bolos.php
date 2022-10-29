@@ -4,30 +4,36 @@
 
     use \App\Utils\View;
     use \App\Model\Entity\Bolos as BolosEntity;
+    use \App\Controller\Pages\Components\Navbar;
+    use \App\Controller\Pages\Components\Footer;
+    use \App\Controller\Pages\Components\Card;
 
     class Bolos extends Index {
 
-        public static function getBolosItens(){
+        public static function getBolosItens($categoria = ''){
             $itens = '';
-            $results = BolosEntity::getBolos(null, 'id DESC');
+            $results = BolosEntity::getBolosByCategory($categoria);
 
             while($obBolos = $results->fetchObject(BolosEntity::class)){
-                $itens .= View::render('pages/bolos/itens', [
-                    'nome' => $obBolos->nome,
-                    'desc' => $obBolos->descricao
-                ]);
+                $itens .= Card::getCard($obBolos);
             }
 
             return $itens;
         }
             
-        public static function getBolos(){
+        public static function getBolos($request){
+            $params = $request->getQueryParams();
+            //var_dump($params);
             
             $content = View::render('pages/bolos', [
-                'itens' => self::getBolosItens()
+                'navbar' => Navbar::getNavbar(),
+                'footer' => Footer::getFooter(),
+                'cards' => self::getBolosItens($params['categoria'])
             ]);
+            $css = View::getStyleView('bolos');
+            //$js = View::getScriptView('bolos');
 
-            return parent::getindex('Bolos', $content);
+            return parent::getindex('Bolos', $content, $css);
         }
 
         public static function renderBolos($request){
