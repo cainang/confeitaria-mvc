@@ -1,0 +1,36 @@
+<main data-idbolo="{{idbolo}}" data-tempo="{{tempo}}">
+    <section id="content">
+        <img src="resources\img\bolo_mock.png" alt="Imagem de Bolo">
+        <div id="desc">
+            <h1>{{nome}}</h1>
+            <p id="descricao">{{desc}}</p>
+            <div id="ingredientes">
+                <p id="ing-title">INGREDIENTES OPCIONAIS:</p>
+                <div id="ingCards">
+                    {{ingCard}}
+                </div>
+            </div>
+            <div id="bottom">
+                <div id="left">
+                    <p id="preco">{{preco}}</p>
+                    <p id="data">DATA PREVISTA DE ENTREGA: <span>-</span></p>
+                    <img src="resources/img/FRETE.png" alt="Logo Frete">
+                </div>
+                <div id="right">
+                    <div id="andares">
+                        <p id="titulo">Andares</p>
+                        <div id="controlls">
+                            <button id="decrement">-</button>
+                            <p>1</p>
+                            <button id="increment">+</button>
+                        </div>
+                    </div>
+
+                    <form action="" method="post">
+                        <button id="fil_compra" type="submit">FINALIZAR COMPRA</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

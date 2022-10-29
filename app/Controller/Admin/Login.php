@@ -70,7 +70,7 @@ class Login extends Index {
     public static function setSession($obUser, $request){
         SessionLogin::login($obUser);
 
-        $request->getRouter()->redirect('/admin');
+        $request->getRouter()->redirect('/');
     }
 
     public static function setLogout($request){
