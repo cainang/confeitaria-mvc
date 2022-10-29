@@ -1,5 +1,8 @@
-main{
+body {
     background-color: #FFF2F5;
+}
+main{
+    /* background-color: #FFF2F5; */
     display: flex;
     justify-content: center;
     align-items: center;

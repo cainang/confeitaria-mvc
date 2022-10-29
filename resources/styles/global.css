@@ -1,8 +1,23 @@
+
+
+html {
+    scroll-behavior: smooth;
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Ubuntu', sans-serif;
+}
+:root{
+    --color_accent-primary: #9C2A43;
+    --clamp-h1-title: clamp(2.5em, 6.5vw, 4.5em);
+    --clamp-h2-title: clamp(1.5em, 6.5vw, 3em);
+}
+.font_family_title{
+    color: #DD0553;
+    /* font-size: 35px; */
+    font-family: 'Limelight', cursive;
 }
 
 #alert{
@@ -156,4 +171,20 @@
         /* transform: translateX(100px); */
         display: none;
     }
+}
+
+.button_confeitaria {
+    background-color: #9C2A43;
+    padding:  1em 1.4em;
+    color: white;
+    font-weight: 500;
+    border-radius: 6px;
+    border: none;
+    margin: 3px
+}
+
+.button_confeitaria.secundario {
+    background-color: transparent;
+    color: #9C2A43;
+    border: 1.6px solid #9C2A43
 }
