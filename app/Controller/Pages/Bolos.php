@@ -23,7 +23,10 @@
             
         public static function getBolos($request){
             $params = $request->getQueryParams();
-            //var_dump($params);
+
+            if (!isset($params['categoria'])) {
+                throw new \Exception("Categoria não encontrada", 404);
+            }
             
             $content = View::render('pages/bolos', [
                 'navbar' => Navbar::getNavbar(),
@@ -31,7 +34,6 @@
                 'cards' => self::getBolosItens($params['categoria'])
             ]);
             $css = View::getStyleView('bolos');
-            //$js = View::getScriptView('bolos');
 
             return parent::getindex('Bolos', $content, $css);
         }

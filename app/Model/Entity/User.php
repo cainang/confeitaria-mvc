@@ -5,7 +5,7 @@ namespace App\Model\Entity;
 use \WilliamCosta\DatabaseManager\Database;
 
 class User {
-    public $id;
+    public $ID;
     public $nome;
     public $email;
     public $senha;
@@ -30,6 +30,6 @@ class User {
             return false;
         }
 
-        return (new Database('CLIENTES'))->select("id = '". $id ."'")->fetchObject(self::class);
+        return (new Database('CLIENTES'))->select("ID = '". $id ."'")->fetchObject(self::class);
     }
 }

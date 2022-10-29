@@ -14,7 +14,7 @@ class Login {
         self::init();
 
         $_SESSION['admin']['user'] = [
-            'id' => $obUser->id,
+            'id' => $obUser->ID,
             'nome' => $obUser->nome,
             'email' => $obUser->email,
             'ativo' => $obUser->ativo,
@@ -35,5 +35,11 @@ class Login {
         self::init();
 
         return isset($_SESSION['admin']['user']['nome']);
+    }
+
+    public static function getId() {
+        self::init();
+
+        return $_SESSION['admin']['user']['id'];
     }
 }

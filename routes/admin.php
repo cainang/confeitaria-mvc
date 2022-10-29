@@ -3,12 +3,21 @@
     use \App\Http\Response;
     use \App\Controller\Admin;
 
-    $obRouter->get('/admin', [
+    $obRouter->get('/compra', [
         'middlewares' => [
             'require-admin-login'
         ],
-        function(){
-            return new Response(200, 'Admin');
+        function($request){
+            return new Response(200, Admin\Compra::getCompra($request));
+        }
+    ]);
+
+    $obRouter->post('/compra', [
+        'middlewares' => [
+            'require-admin-login'
+        ],
+        function($request){
+            return new Response(200, Admin\Compra::setPostCompra($request));
         }
     ]);
 

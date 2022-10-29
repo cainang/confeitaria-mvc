@@ -104,6 +104,37 @@
     color: #fff;
 }
 
+.ingCard {
+    border-radius: 20px;
+    cursor: pointer;
+
+    padding: 10px 10px;
+}
+
+.ingCard p {
+    font-style: normal;
+    font-weight: 100;
+    font-size: 16px;
+}
+
+.ingCard[data-selected='true'] {
+    border: 1px solid #C62C4E;
+    background: rgba(198, 44, 78, 0.41);
+}
+
+.ingCard[data-selected='false'] {
+    border: 1px solid #C62C4E;
+    background: #FFFFFF;
+}
+
+.ingCard[data-selected='false'] p {
+    color: #C62C4E;
+}
+
+.ingCard[data-selected='true'] p {
+    color: #fff;
+}
+
 @keyframes animationAlertIn {
     from {
         opacity: 0;
