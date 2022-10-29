@@ -1,0 +1,50 @@
+main{}
+
+#content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+#content img{
+    /* height: 593px; */
+    height: 550px;
+}
+
+#content h1{
+    font-family: 'Limelight';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 75px;
+    line-height: 91px;
+
+    color: #DD0553;
+}
+
+#categoria {
+    display: flex;
+    flex-direction: column;
+    margin-block: 35px;
+}
+
+#categoria h1{
+    font-family: 'Limelight';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 61px;
+
+    color: #9C2A43;
+
+    padding: 30px 50px;
+}
+
+#categoria #cards{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 80px;
+    flex-wrap: wrap;
+}

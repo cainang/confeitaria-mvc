@@ -1,0 +1,266 @@
+main{
+    background-color: #FFF2F5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#container{
+    display: flex;
+    flex-direction: row;
+    margin-inline: 20px;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0px 0px 10px rgba(156, 42, 67, 0.12));
+    transition: flex-direction ease 0.5s;
+}
+
+/* #container[data-togglelogin="cadastro"]{
+    flex-direction: row-reverse; 
+} */
+
+#container #left{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #fff;
+    width: 24.5rem;
+    height: 444px;
+    padding: 30px;
+}
+
+#container #right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: url('../../resources/img/background-aside-login.png');
+    background-size: cover;
+    width: 24.5rem;
+    height: 444px;
+}
+
+.fade > * {
+    animation: toToggleFadein 0.8s  ease forwards;
+}
+.onAnimationToLoginRight{
+    animation: toLoginRight 1s ease forwards;
+}
+
+.onAnimationToLoginLeft{
+    animation: toLoginLeft 1s ease forwards;
+}
+
+.onAnimationToCadRight{
+    animation: toCadRight 1s ease forwards;
+}
+
+.onAnimationToCadLeft{
+    animation: toCadLeft 1s ease forwards;
+}
+
+#container #left h1{
+    color: #DD0553;
+    font-size: 35px;
+    font-family: 'Limelight', cursive;
+}
+
+#container #left #form {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#container #left #form form{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#container #left #form form label{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#container #left #form form input[type="email"], 
+#container #left #form form input[type="password"], 
+#container #left #form form input[type="text"]{
+    margin-bottom: 10px;
+    height: 45px;
+    background-color: #EBEBEB;
+    border-radius: 50px;
+    border: none;
+    padding: 0px 20px;
+    margin-left: 5px;
+}
+
+#placeToName{
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#container #left #form form #submit{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 45px;
+    background: linear-gradient(90deg, #C62C4E 0%, #F20E40 100%);
+    border-radius: 50px;
+    border: none;
+    padding: 0px 20px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    color: #fff;
+    
+    cursor: pointer;
+}
+
+#container #left #form form #cadastro-hidden{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    height: 45px;
+    background: linear-gradient(90deg, #C62C4E 0%, #F20E40 100%);
+    border-radius: 50px;
+    border: none;
+    padding: 0px 20px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    color: #fff;
+    display: none;
+    filter: saturate(0.2);
+    
+    cursor: pointer;
+}
+
+#container #left #form form button {
+    background: transparent;
+    border: none;
+    padding: 0px 20px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    cursor: pointer;
+}
+
+#container #right #right-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#container #right #right-content h1 {
+    font-family: 'Limelight';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 43px;
+    text-align: center;
+
+    color: #9C2A43;
+}
+
+#container #right #right-content span {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 17px;
+}
+
+#container #right #right-content button {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    height: 45px;
+    background: linear-gradient(90deg, #C62C4E 0%, #F20E40 100%);
+    border-radius: 50px;
+    border: none;
+    padding: 0px 20px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    color: #fff;
+    
+    cursor: pointer;
+}
+
+@keyframes toToggleFadein {
+    0% {
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes toLoginRight {
+    from {
+        transform: translateX(-24.5rem);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes toLoginLeft {
+    from {
+        transform: translateX(24.5rem);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes toCadRight {
+    from {
+        transform: translateX(0px);
+    }
+    to {
+        transform: translateX(-24.5rem);
+    }
+}
+
+@keyframes toCadLeft {
+    from {
+        transform: translateX(0px);
+    }
+    to {
+        transform: translateX(24.5rem);
+    }
+}
+
+
+@media screen and (max-width: 824px) {
+    main {
+        background-color: #fff;
+    }
+    #container{
+        filter: none;
+    }
+    #container[data-togglelogin="cadastro"] #placeToName {
+        display: flex !important;
+    }
+
+    #container[data-togglelogin="recovery"] form #recuperacao {
+        display: inline-block !important;
+    }
+    #container #right{
+        display: none;
+    }
+    #container #left{
+        width: 100%;
+        max-width: 24.5rem;
+        height: 100%;
+    }
+    #container #left #form form #cadastro-hidden{
+        display: block;
+    }
+}
+

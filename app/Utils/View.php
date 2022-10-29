@@ -9,9 +9,19 @@
             self::$vars = $vars;
         }
 
-        public static function getContentView($view){
+        private static function getContentView($view){
             $file = __DIR__."/../../resources/view/".$view.".html";
             return file_exists($file) ? file_get_contents($file) : '';
+        }
+
+        public static function getStyleView($style){
+            $link = '<link rel="stylesheet" href="resources\styles\\'.$style.'.css">';
+            return $link;
+        }
+
+        public static function getScriptView($script){
+            $link = '<script src="resources\js\\'.$script.'.js"></script>';
+            return $link;
         }
 
         public static function render($view, $vars = []){
