@@ -154,16 +154,38 @@ AVALIAÇÃO DE CLIENTES
 
 .home_integrantes_container{
     flex-direction: row;
+    flex-wrap: wrap;
+    padding: 2rem;
+    background-color: var(--color_accent-primary);
 }
 .home_integrantes_text{
-    width: 30%;
+    align-self: flex-start;
+    color: white;
+    margin-bottom: 1.25rem;
+}
+.home_integrantes_text h2 {
+    font-size: var(--clamp-h2-title);
 }
 .home_integrantes_pessoas{
-    width: 70%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 .home_integrantes_pessoa{
-    width: 200px;
+    flex: 1;
+    width: 100%;
+    min-width: 250px;
     height: 200px;
-    background-color: red;
+    background-color: rgba(255, 255, 255, 0.283);
 }
-        
+
+@media screen and (min-width: 700px) {
+    .home_integrantes_text{
+        width: 30%;
+    }
+    .home_integrantes_pessoas{
+        width: 70%;
+        max-width: max-content ;
+    }
+}
