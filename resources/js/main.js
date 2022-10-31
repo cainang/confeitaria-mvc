@@ -14,8 +14,10 @@ function formatPricesFromCard() {
 
 function formatPriceFromCompraPage() {
     let priceElement = document.querySelector('#content #desc #bottom #left #preco');
-    let price = parseFloat(priceElement.innerText);
-    priceElement.innerText = formatter.format(price);
+    if (priceElement) {
+        let price = parseFloat(priceElement.innerText);
+        priceElement.innerText = formatter.format(price);
+    }
 }
 
 formatPriceFromCompraPage();
