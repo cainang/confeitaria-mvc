@@ -192,7 +192,7 @@ a:hover {
     font-weight: 500;
     border-radius: 6px;
     border: none;
-    margin: 3px
+    margin: 3px;
 }
 
 .button_confeitaria.secundario {
@@ -227,7 +227,7 @@ nav {
 
 .navbar_container_section {
     display: flex;
-    align-items: baseline;
+    align-items: center;
 }
 
 .nav-list {
