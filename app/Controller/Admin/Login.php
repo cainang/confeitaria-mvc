@@ -64,6 +64,18 @@ class Login extends Index {
         $postVars = $request->getPostVars();
         $email = $postVars['email'] ?? '';
 
+        $obUser = User::getUserByEmail($email);
+        
+        if(!$obUser instanceof User){
+            $alert = Alert::getAlert('Este email não está vinculado á um usuario!', 'erro');
+            $alertJs = Alert::getAlertScript();
+
+            return self::getLogin($request, [
+                'alert' => $alert,
+                'alertJs' => $alertJs
+            ]);
+        }
+
         $sender = Email::sendEmail($email, 'recovery');
 
         $alert = "";
