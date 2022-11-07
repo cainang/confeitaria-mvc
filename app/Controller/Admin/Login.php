@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use \App\Utils\View;
+use \App\Utils\Email;
 use \App\Model\Entity\User;
 use \App\Session\Admin\Login as SessionLogin;
 use \App\Controller\Pages\Index;
@@ -47,7 +48,7 @@ class Login extends Index {
         $obUser = User::getUserByEmail($email);
         
         if(!$obUser instanceof User || !password_verify($senha, $obUser->senha)){
-            $alert = Alert::getAlert('Email ou Senha Incorretos!', 'sucesso');
+            $alert = Alert::getAlert('Email ou Senha Incorretos!', 'erro');
             $alertJs = Alert::getAlertScript();
 
             return self::getLogin($request, [
@@ -59,9 +60,33 @@ class Login extends Index {
         self::setSession($obUser, $request);
     }
 
+    public static function setRecovery($request){
+        $postVars = $request->getPostVars();
+        $email = $postVars['email'] ?? '';
+
+        $sender = Email::sendEmail($email, 'recovery');
+
+        $alert = "";
+        
+        if(!$sender){
+            $alert = Alert::getAlert('Erro no envio de email, tente novamente!', 'erro');
+        } else {
+            $alert = Alert::getAlert('Email enviado com sucesso!', 'sucesso');
+        }
+
+        $alertJs = Alert::getAlertScript();
+
+        return self::getLogin($request, [
+            'alert' => $alert,
+            'alertJs' => $alertJs
+        ]);
+    }
+
     public static function setPostLogin($request){
         if(isset($request->getQueryParams()["cad"])){
             return self::setSignup($request);
+        } else if(isset($request->getQueryParams()["recovery"])) {
+            return self::setRecovery($request);
         } else {
             return self::setLogin($request);
         }

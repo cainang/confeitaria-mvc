@@ -10,6 +10,7 @@
         "william-costa/database-manager": "^0.1.0",
         "mailgun/mailgun-php": "^3.5",
         "symfony/http-client": "^6.1",
-        "nyholm/psr7": "^1.5"
+        "nyholm/psr7": "^1.5",
+        "phpmailer/phpmailer": "^6.6"
     }
 }
