@@ -7,7 +7,7 @@
 
     class Email {
 
-        public static function sendEmail($email, $tipo){
+        public static function sendEmail($email, $tipo, $token = ''){
             try {
                 $mail = new PHPMailer(true);
                 $mail->isSMTP();                                
@@ -21,18 +21,19 @@
                 $mail->setFrom('confeitariatrabalho@gmail.com', 'Confeitaria');
                 $mail->addAddress($email, 'Eu');
 
+                $url = getenv('URL') . '/recovery?email=' . $email . '&token=' . $token;
 
                 $mail->isHTML(true);
                 if ($tipo == "recovery") {
                     $mail->Subject = 'Recuperacao de Senha';
                     $mail->Body    = '<p>Clique no botão abaixo para recuperar a senha:</p>
                                       <br>
-                                      <a href="www.google.com">
+                                      <a href="'.$url.'">
                                         <button>Recuperar Senha</button>
                                       </a>
                                       <br>
                                       <br>
-                                      <a href="www.google.com">Recuperar senha</a>
+                                      <a href="'.$url.'">Recuperar senha</a>
                                       ';
                 }
                 

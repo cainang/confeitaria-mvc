@@ -76,7 +76,9 @@ class Login extends Index {
             ]);
         }
 
-        $sender = Email::sendEmail($email, 'recovery');
+        $userToken = User::getUserToken($obUser->email, $obUser->nome);
+
+        $sender = Email::sendEmail($email, 'recovery', $userToken);
 
         $alert = "";
         
