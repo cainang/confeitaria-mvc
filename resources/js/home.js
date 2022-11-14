@@ -2,7 +2,7 @@ let botaoUsuario = document.querySelector('.button_usuario');
 
 async function getPedidosJson(){
     try {
-        const dadosPedidos = await fetch('http://localhost:8083/confeitaria-mvc/pedidos')
+        const dadosPedidos = await fetch('http://localhost/confeitaria-mvc/pedidos')
             .then(response => response.json())
         
         return dadosPedidos
