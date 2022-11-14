@@ -31,12 +31,24 @@
                 'token_user' => $userToken
             ]);
             $css = View::getStyleView('login');
-            //$js = View::getScriptView('login');
+            $js = View::getScriptView('recovery');
 
-            return parent::getindex('Recuperar Senha', $content, $css, '', $alert);
+            return parent::getindex('Recuperar Senha', $content, $css, $js, $alert);
         }
 
         public static function setRecovery($request){
+            $queryVars = $request->getQueryParams();
+            
+            if (isset($queryVars['redirect'])) {
+                $redirect = $queryVars['redirect'];
+                $request->getRouter()->redirect('/'. $redirect);
+            } else {
+                self::changePassword($request);
+            }
+            
+        }
+
+        public static function changePassword($request){
             $postVars = $request->getPostVars();
             $queryVars = $request->getQueryParams();
             $novasenha = $postVars['novasenha'] ?? '';

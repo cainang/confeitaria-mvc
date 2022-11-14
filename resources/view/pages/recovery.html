@@ -10,15 +10,18 @@
                     <label for="senha">Confirmar Senha</label>
                     <input type="password" name="confirmasenha" id="senha"  placeholder="CONFIRMAR SENHA" required>
                     <input id="submit" type="submit" value="Salvar senha">
+                    <button id="cadastro-hidden" type="button">Login</button>
                 </form>
             </div>
         </section>
         <section id="right">
-            <div id="right-content">
-                <h1>Olá, {{nome_user}}</h1>
-                <span>Já recuperou? Entre agora!</span>
-                <button id="cadastre-se" type="button">Entrar</button>
-            </div>
+            <form action="?redirect=login" method="post">
+                <div id="right-content">
+                    <h1>Olá, {{nome_user}}</h1>
+                    <span>Já recuperou? Entre agora!</span>
+                    <button id="cadastre-se" type="submit">Entrar</button>
+                </div>
+            </form>
         </section>
     </div>
 
