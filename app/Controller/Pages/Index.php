@@ -3,6 +3,7 @@
     namespace App\Controller\Pages;
 
     use \App\Utils\View;
+    use \App\Controller\Pages\ModalUser;
     use \App\Controller\Pages\Components\Navbar;
 
     class Index {
@@ -21,7 +22,9 @@
                 'css' => $css,
                 'script' => $js,
                 'alert' => $alert['alert'] ?? '',
-                'alertJs' => $alert['alertJs'] ?? ''
+                'alertJs' => $alert['alertJs'] ?? '',
+                'navbar' => Navbar::getNavbar(),
+                'modaluser' => ModalUser::getModalUser(),
             ]);
         }
     

@@ -68,7 +68,7 @@ a:hover {
     transform: translateX(0px);
 }
 
-.card {
+.card2 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,14 +80,14 @@ a:hover {
     border-radius: 5px;
 }
 
-.card img {
+.card2 img {
     width: 191px;
     height: 140px;
     border-radius: 5px 5px 0 0;
     object-fit: cover;
 }
 
-.card .card-body {
+.card2 .card2-body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -96,7 +96,7 @@ a:hover {
     gap: 10px;
 }
 
-.card .card-body #titulo {
+.card2 .card2-body #titulo {
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -104,7 +104,7 @@ a:hover {
     text-transform: uppercase;
 }
 
-.card .card-body #preco {
+.card2 .card2-body #preco {
     font-style: normal;
     font-weight: 700;
     font-size: 25px;
@@ -114,7 +114,7 @@ a:hover {
     color: #505D68;
 }
 
-.card .card-body button {
+.card2 .card2-body button {
     border: 1px solid #842A3E;
     border-radius: 5px;
     background-color: #fff;
@@ -124,7 +124,7 @@ a:hover {
     transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.card .card-body button:hover {
+.card2 .card2-body button:hover {
     background-color: #842A3E;
     color: #fff;
 }
@@ -202,6 +202,16 @@ a:hover {
     border: 1.6px solid #9C2A43
 }
 
+.button_confeitaria.button_usuario {
+    background-color: transparent;
+    color: #9C2A43;
+    border: 1.6px solid #9C2A43;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border-radius: 50%;
+}
+
 /* //navbar e afins */
 .logo {
     font-size: 24px;
@@ -234,6 +244,7 @@ nav {
 .nav-list {
     list-style: none;
     display: flex;
+    margin-bottom: 0;
 }
 
 .nav-list li {
