@@ -187,7 +187,7 @@ a:hover {
 
 .button_confeitaria {
     background-color: #9C2A43;
-    padding: 1em 1.4em;
+    padding: .6em 1em;
     color: white;
     font-weight: 500;
     border-radius: 6px;
@@ -251,6 +251,15 @@ nav {
     text-transform: uppercase;
     letter-spacing: 3px;
     margin-left: 32px;
+}
+
+@media screen and (max-width: 700px) {
+    nav {
+        justify-content: space-between;
+    }
+    .nav-list li {
+        display:  none;
+    };
 }
 
 

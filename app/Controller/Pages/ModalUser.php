@@ -4,6 +4,7 @@
     use \App\Session\Admin\Login as SessionLogin;
     use \App\Model\Entity\Pedidos as PedidosEntity;
     use \App\Model\Entity\Bolos as BolosEntity;
+    use \App\Model\Entity\User;
     use \App\Utils\View;
     use \App\Controller\Pages\Components\PedidosCard;
 
@@ -42,6 +43,7 @@
             $content = View::render('pages/modalUser', [
                 "nome" => $_SESSION['admin']['user']['nome'],
                 "email" => $_SESSION['admin']['user']['email'],
+                "token" => User::getUserToken($_SESSION['admin']['user']['email'],$_SESSION['admin']['user']['nome'])
             ]);
 
             return $content;

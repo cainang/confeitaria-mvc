@@ -7,7 +7,7 @@ use \App\Session\Admin\Login as SessionLogin;
 class RequireAdminLogout {
     public function handle($request, $next){
         if(SessionLogin::isLogged()){
-            $request->getRouter()->redirect('/admin');
+            $request->getRouter()->redirect('/');
         }
 
         return $next($request);
