@@ -15,6 +15,16 @@ class User {
         return (new Database('CLIENTES'))->select("email = '". $email ."'")->fetchObject(self::class);
     }
 
+    static public function getUserToken($email, $nome) {
+        return md5($email . $nome);
+    }
+
+    static public function setNewPassword($id, $novasenha) {
+        return (new Database('CLIENTES'))->update("ID = '". $id ."'", [
+            'senha' => $novasenha
+        ]);
+    }
+
     static public function createUser($email, $senha, $nome) {
         $id;
         $hashSenha = password_hash($senha, PASSWORD_DEFAULT);

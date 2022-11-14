@@ -74,8 +74,7 @@ function toggleContainerContent() {
         inputSenha.style.display = 'none';
         labelSenha.style.display = 'none';
         inputSenha.removeAttribute('required');
-        form.setAttribute('method', '');
-        form.onsubmit = handleRecoverySubmit;
+        form.setAttribute('action', '?recovery');
 
         let descriptionRecovery = document.createElement('span');
         descriptionRecovery.innerText = content[2].description;
@@ -170,11 +169,6 @@ function changeTo(target, responsive = false) {
         cadButtonResponsive.style.display = 'none';
         rightNameInput.removeAttribute('required');
     }
-}
-
-function handleRecoverySubmit(e) {
-    e.preventDefault();
-    alert('teste');
 }
 
 toggleContainerContent();
