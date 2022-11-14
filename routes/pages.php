@@ -9,9 +9,15 @@
         }
     ]);
 
-    $obRouter->get('/recuperacao', [
-        function(){
-            return new Response(200, Pages\Recuperacao::getRecuperacao());
+    $obRouter->get('/recovery', [
+        function($request){
+            return new Response(200, Pages\Recovery::getRecovery($request));
+        }
+    ]);
+
+    $obRouter->post('/recovery', [
+        function($request){
+            return new Response(200, Pages\Recovery::setRecovery($request));
         }
     ]);
     

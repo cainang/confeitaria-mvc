@@ -1,0 +1,28 @@
+<main>
+    
+    <div id="container" data-togglelogin="login">
+        <section id="left">
+            <h1>Recuperar Senha</h1>
+            <div id="form">
+                <form action="?email={{email_user}}&token={{token_user}}" method="post">
+                    <label for="email">Nova Senha</label>
+                    <input type="password" name="novasenha" id="email" placeholder="NOVA SENHA" required>
+                    <label for="senha">Confirmar Senha</label>
+                    <input type="password" name="confirmasenha" id="senha"  placeholder="CONFIRMAR SENHA" required>
+                    <input id="submit" type="submit" value="Salvar senha">
+                    <button id="cadastro-hidden" type="button">Login</button>
+                </form>
+            </div>
+        </section>
+        <section id="right">
+            <form action="?redirect=login" method="post">
+                <div id="right-content">
+                    <h1>Olá, {{nome_user}}</h1>
+                    <span>Já recuperou? Entre agora!</span>
+                    <button id="cadastre-se" type="submit">Entrar</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+</main>
