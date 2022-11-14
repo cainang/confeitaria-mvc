@@ -7,23 +7,25 @@
 
     class PedidosCard {
             
-        public static function getPedidosCard($obBolos){
+        public static function getPedidosJson($obBolos){
             $boloInfo = BolosEntity::getBolosById($obBolos->id_bolo)->fetchObject(BolosEntity::class);
             // echo '<pre>';
             //  print_r($boloInfo);
             // echo '</pre>';
             // // die;
             // return;
-            $content = View::render('pages/components/pedidosCard', [
+
+            $json = json_encode(array(
                 'id' => $obBolos->ID,
                 'nomedobolo' => $boloInfo->nome,
-                // 'categoria' => $boloInfo->categoria,
+                'categoria' => $boloInfo->categoria,
                 'preco' => $boloInfo->preco,
                 'descricao' => $boloInfo->descricao,
                 'datadeentrega' => $obBolos->data_entrega,
-            ]);
+                )
+            );
 
-            return $content;
+            return $json;
         }
     
     }

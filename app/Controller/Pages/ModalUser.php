@@ -3,33 +3,45 @@
     // namespace App\Controller\Pages\Components;
     use \App\Session\Admin\Login as SessionLogin;
     use \App\Model\Entity\Pedidos as PedidosEntity;
+    use \App\Model\Entity\Bolos as BolosEntity;
     use \App\Utils\View;
     use \App\Controller\Pages\Components\PedidosCard;
 
     class ModalUser extends Index {
 
-        public static function getBolosItens($id){
-            $itens = '';
-            $results = PedidosEntity::getPedidosByUser($id);
+        public static function getPedidosJson($obBolos){
+            $boloInfo = BolosEntity::getBolosById($obBolos->id_bolo)->fetchObject(BolosEntity::class);
+
+            $json = [
+                'id' => $obBolos->ID,
+                'nomedobolo' => $boloInfo->nome,
+                'categoria' => $boloInfo->categoria,
+                'preco' => $boloInfo->preco,
+                'descricao' => $boloInfo->descricao,
+                'datadeentrega' => $obBolos->data_entrega,
+            ];
+
+            return $json;
+        }
+
+        public static function getBolosItens(){
+            $itens = [];
+            $results = PedidosEntity::getPedidosByUser($_SESSION['admin']['user']['id']);
 
             while($obBolos = $results->fetchObject(PedidosEntity::class)){
-                $itens .= PedidosCard::getPedidosCard($obBolos);
+                array_push($itens, self::getPedidosJson($obBolos));
             }
-            return $itens;
+            return json_encode($itens);
         }
             
         public static function getModalUser(){
-            // var_dump($_SESSION);
-            // return;
             if(!SessionLogin::isLogged()){
                 return;
             }
-            $params = $_SESSION['admin']['user']['id'];
 
             $content = View::render('pages/modalUser', [
                 "nome" => $_SESSION['admin']['user']['nome'],
                 "email" => $_SESSION['admin']['user']['email'],
-                "cards" => self::getBolosItens($_SESSION['admin']['user']['id'])
             ]);
 
             return $content;

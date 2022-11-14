@@ -39,7 +39,7 @@
 
         public static function getButton($texto = '', $class = 'comum', $link = '', $extras = ''){
             $tipo = Button::getClassButton($class);
-            // 
+
             $content = View::render('pages/components/button', [
                 'texto' => $texto,
                 'class' => $tipo,

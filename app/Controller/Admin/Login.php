@@ -70,7 +70,7 @@ class Login extends Index {
     public static function setSession($obUser, $request){
         SessionLogin::login($obUser);
 
-        $request->getRouter()->redirect('/');
+        $request->getRouter()->redirect('/confeitaria-mvc');
     }
 
     public static function setLogout($request){

@@ -21,4 +21,13 @@
         }
     ]);
 
+    $obRouter->get('/pedidos', [
+        'middlewares' => [
+            'require-admin-login'
+        ],
+        function(){
+            return new Response(200, Pages\ModalUser::getBolosItens());
+        }
+    ]);
+
 ?>
