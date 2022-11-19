@@ -1,0 +1,38 @@
+<div class="modal endereco" tabindex="-1" role="dialog" id="exampleModalEndereco">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title ">Finalizar Compra</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="height: 70vh;overflow: auto;">
+                <h2>Informações de Endereço</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="cep">CEP: </label>
+                        <input type="text" class="form-control" id="cep" name="cep" placeholder="00000-000" maxlength="9" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="bairro">Bairro: </label>
+                        <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Ex.: Bom Jardim" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="endereco">Endereço: </label>
+                        <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Ex.: Rua Tal" required />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <form action="" method="post" id="form_modal">
+                    <button type="submit" id="fin_comp" class="btn btn-primary color-primary">
+                        Finalizar Compra
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{{modalJs}}

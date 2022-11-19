@@ -4,7 +4,7 @@ const formatter = new Intl.NumberFormat('pt-BR', {
 });
 
 function formatPricesFromCard() {
-    let cardsPrices = document.querySelectorAll('.card #preco');
+    let cardsPrices = document.querySelectorAll('.card2 #preco');
 
     cardsPrices.forEach((cardPrice) => {
         let price = parseFloat(cardPrice.innerText);

@@ -1,4 +1,29 @@
 let cadbutton = document.querySelector('#cadastro-hidden');
+let novasenha = document.querySelector('#email');
+let confirmasenha = document.querySelector('#senha');
+console.log(novasenha, confirmasenha);
+
+let valuenovasenha = "";
+let valueconfirmasenha = "";
+
+novasenha.onkeypress = (e) => {
+    valuenovasenha = e.target.value;
+
+    if (valuenovasenha != valueconfirmasenha) {
+        confirmasenha.style.border = '1px solid red';
+    } else {
+        confirmasenha.style.border = 'none';
+    }
+}
+
+confirmasenha.onkeypress = (e) => {
+    valueconfirmasenha = e.target.value;
+    if (valuenovasenha != valueconfirmasenha) {
+        confirmasenha.style.border = '1px solid red';
+    } else {
+        confirmasenha.style.border = 'none';
+    }
+}
 
 cadbutton.onclick = () => {
     let url = window.location.protocol + '//';

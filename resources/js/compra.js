@@ -61,7 +61,7 @@ function handleIngredientes() {
 function handleFilComp() {
     let id_bolo = document.querySelector('main').getAttribute('data-idbolo');
     let data_prevista = document.querySelector('#content #desc #bottom #left #data span').innerText;
-    let form = document.querySelector('#content #desc #bottom #right form');
+    let form = document.querySelector('.modal.endereco #form_modal');
 
     let ingredientes = [];
     let ingredientesElement = document.querySelectorAll('#content #desc #ingredientes #ingCards .ingCard[data-selected="true"]');

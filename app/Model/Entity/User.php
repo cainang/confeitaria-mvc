@@ -25,6 +25,14 @@ class User {
         ]);
     }
 
+    static public function setEndereco($id, $cep, $rua, $bairro) {
+        return (new Database('CLIENTES'))->update("ID = '". $id ."'", [
+            'cep' => $cep,
+            'rua' => $rua,
+            'bairro' => $bairro
+        ]);
+    }
+
     static public function createUser($email, $senha, $nome) {
         $id;
         $hashSenha = password_hash($senha, PASSWORD_DEFAULT);

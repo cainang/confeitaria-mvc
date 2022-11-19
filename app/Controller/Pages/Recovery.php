@@ -43,7 +43,7 @@
                 $redirect = $queryVars['redirect'];
                 $request->getRouter()->redirect('/'. $redirect);
             } else {
-                self::changePassword($request);
+                return self::changePassword($request);
             }
             
         }
@@ -52,8 +52,19 @@
             $postVars = $request->getPostVars();
             $queryVars = $request->getQueryParams();
             $novasenha = $postVars['novasenha'] ?? '';
+            $confirmasenha = $postVars['confirmasenha'] ?? '';
             $email = $queryVars['email'] ?? '';
             $token = $queryVars['token'] ?? '';
+
+            if($novasenha != $confirmasenha){
+                $alert = Alert::getAlert('Senhas Diferentes!', 'erro');
+                $alertJs = Alert::getAlertScript();
+
+                return self::getRecovery($request, [
+                    'alert' => $alert,
+                    'alertJs' => $alertJs
+                ]);
+            }
 
             $obUser = User::getUserByEmail($email);
 

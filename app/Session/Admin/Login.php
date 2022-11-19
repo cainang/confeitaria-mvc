@@ -17,6 +17,9 @@ class Login {
             'id' => $obUser->ID,
             'nome' => $obUser->nome,
             'email' => $obUser->email,
+            'cep' => $obUser->cep,
+            'rua' => $obUser->rua,
+            'bairro' => $obUser->bairro,
             'ativo' => $obUser->ativo,
         ];
 

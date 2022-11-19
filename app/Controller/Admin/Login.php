@@ -37,6 +37,8 @@ class Login extends Index {
             ]);
         }
 
+        $sender = Email::sendEmail($email, 'newUser');
+
         self::setSession($obUser, $request);
     }
 
