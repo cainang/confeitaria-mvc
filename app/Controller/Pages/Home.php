@@ -13,8 +13,8 @@
             
             $content = View::render('pages/home', [
                 'result' => 'Ola mundo',
-                'button' => Button::getButton('PRODUTOS', '', '#categorias'),
-                'btn_login' => Button::getButton('LOGIN', 'secundario', "login")
+                'produtos' => Button::getButton('PRODUTOS', 'comum', '#categorias'),
+                // 'btn_login' => Button::getButton('LOGIN', 'secundario', "login")
             ]);
             $css = View::getStyleView('home');
             $js = View::getScriptView('home');

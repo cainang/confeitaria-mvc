@@ -12,7 +12,7 @@ class Pedidos {
     public $ativo;
 
     static public function getPedidosByUser($id) {
-        return (new Database('PEDIDOS'))->select("id_cliente = '". $id ."'")->fetchObject(self::class);
+        return (new Database('PEDIDOS'))->select("id_cliente = '". $id ."'");
     }
 
     static public function createPedido($data_entrega, $id_cliente, $id_bolo) {
