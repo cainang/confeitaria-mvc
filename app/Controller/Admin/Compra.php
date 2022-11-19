@@ -11,6 +11,7 @@ use \App\Model\Entity\Ingredientes as IngredientesEntity;
 use \App\Model\Entity\Bolos as BolosEntity;
 use \App\Model\Entity\Pedidos as PedidosEntity;
 use \App\Controller\Pages\Components\Alert;
+use \App\Controller\Pages\Components\ModalEndereco;
 
 class Compra extends Index {
 
@@ -44,7 +45,8 @@ class Compra extends Index {
             'desc' => $obBolos->descricao,
             'preco' => $obBolos->preco,
             'tempo' => $obBolos->tempo,
-            'ingCard' => self::getIngCards()
+            'ingCard' => self::getIngCards(),
+            'modalEndereco' => ModalEndereco::getModalEndereco()
         ]);
         $css = View::getStyleView('compra');
         $js = View::getScriptView('compra');
@@ -66,6 +68,9 @@ class Compra extends Index {
         $data_entrega = $params['dataentrega'];
         $ingredientes = $params['ingredientes'];
         $id_bolo = $params['id'];
+        $cep = $params['cep'];
+        $bairro = $params['bairro'];
+        $endereco = $params['endereco'];
 
         $id_cliente = SessionLogin::getId();
 
@@ -79,6 +84,12 @@ class Compra extends Index {
 
         if(!$obPedidoIng){
             return self::callAlert('Erro ao fazer pedido, por favor tente novamente!', 'erro', $request);
+        }
+
+        $obPedidoEnd = User::setEndereco($id_cliente, $cep, $endereco, $bairro);
+
+        if(!$obPedidoEnd){
+            return self::callAlert('Erro ao atualizar endereço, por favor tente novamente!', 'erro', $request);
         }
 
         return self::callAlert('Pedido feito com sucesso!', 'sucesso', $request);

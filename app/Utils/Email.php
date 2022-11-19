@@ -21,10 +21,9 @@
                 $mail->setFrom('confeitariatrabalho@gmail.com', 'Confeitaria');
                 $mail->addAddress($email, 'Eu');
 
-                $url = getenv('URL') . '/recovery?email=' . $email . '&token=' . $token;
-
                 $mail->isHTML(true);
                 if ($tipo == "recovery") {
+                    $url = getenv('URL') . '/recovery?email=' . $email . '&token=' . $token;
                     $mail->Subject = 'Recuperacao de Senha';
                     $mail->Body    = '<p>Clique no botão abaixo para recuperar a senha:</p>
                                       <br>
@@ -34,6 +33,18 @@
                                       <br>
                                       <br>
                                       <a href="'.$url.'">Recuperar senha</a>
+                                      ';
+                } else if($tipo == "newUser") {
+                    $url = getenv('URL') . '/login';
+                    $mail->Subject = 'Seja Bem Vindo';
+                    $mail->Body    = '<p>Clique no botão abaixo para entrar no site:</p>
+                                      <br>
+                                      <a href="'.$url.'">
+                                        <button>Entrar na conta</button>
+                                      </a>
+                                      <br>
+                                      <br>
+                                      <a href="'.$url.'">Entrar na conta</a>
                                       ';
                 }
                 
