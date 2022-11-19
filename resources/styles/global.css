@@ -1,11 +1,36 @@
-*{
+html {
+    scroll-behavior: smooth;
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Ubuntu', sans-serif;
 }
 
-#alert{
+a {
+    color: unset;
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+:root {
+    --color_accent-primary: #9C2A43;
+    --clamp-h1-title: clamp(2.5em, 6.5vw, 4.5em);
+    --clamp-h2-title: clamp(1.5em, 6.5vw, 3em);
+}
+
+.font_family_title {
+    color: #DD0553;
+    /* font-size: 35px; */
+    font-family: 'Limelight', cursive;
+}
+
+#alert {
     background-image: url('../../resources/img/background-aside-login.png');
     background-size: cover;
     position: fixed;
@@ -18,7 +43,7 @@
     transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     display: none;
     border-radius: 10px;
-    
+
     filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3));
     border-left: 5px #cb294d solid;
     z-index: 1;
@@ -43,7 +68,7 @@
     transform: translateX(0px);
 }
 
-.card{
+.card2 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,14 +80,14 @@
     border-radius: 5px;
 }
 
-.card img {
+.card2 img {
     width: 191px;
     height: 140px;
     border-radius: 5px 5px 0 0;
     object-fit: cover;
 }
 
-.card .card-body{
+.card2 .card2-body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -71,7 +96,7 @@
     gap: 10px;
 }
 
-.card .card-body #titulo {
+.card2 .card2-body #titulo {
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -79,7 +104,7 @@
     text-transform: uppercase;
 }
 
-.card .card-body #preco {
+.card2 .card2-body #preco {
     font-style: normal;
     font-weight: 700;
     font-size: 25px;
@@ -89,7 +114,7 @@
     color: #505D68;
 }
 
-.card .card-body button {
+.card2 .card2-body button {
     border: 1px solid #842A3E;
     border-radius: 5px;
     background-color: #fff;
@@ -99,7 +124,7 @@
     transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.card .card-body button:hover {
+.card2 .card2-body button:hover {
     background-color: #842A3E;
     color: #fff;
 }
@@ -140,7 +165,8 @@
         opacity: 0;
         transform: translateX(100px);
     }
-    to{
+
+    to {
         opacity: 1;
         transform: translateX(0px);
     }
@@ -151,9 +177,100 @@
         opacity: 1;
         /* transform: translateX(0px); */
     }
-    to{
+
+    to {
         opacity: 0;
         /* transform: translateX(100px); */
         display: none;
     }
+}
+
+.button_confeitaria {
+    background-color: #9C2A43;
+    padding: .6em 1em;
+    color: white;
+    font-weight: 500;
+    border-radius: 6px;
+    border: none;
+    margin: 3px;
+    text-transform: uppercase;
+}
+
+.button_confeitaria.secundario {
+    background-color: transparent;
+    color: #9C2A43;
+    border: 1.6px solid #9C2A43
+}
+
+.button_confeitaria.button_usuario {
+    background-color: transparent;
+    color: #9C2A43;
+    border: 1.6px solid #9C2A43;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border-radius: 50%;
+}
+
+/* //navbar e afins */
+.logo {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: #ffffff;
+    height: 10vh;
+
+}
+
+.navbar_container_section {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    margin-bottom: 0;
+}
+
+.nav-list li {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-left: 32px;
+}
+
+@media screen and (max-width: 700px) {
+    nav {
+        justify-content: space-between;
+    }
+    .nav-list li {
+        display:  none;
+    };
+}
+
+
+.mobile-menu {
+    display: none;
+    cursor: pointer;
+}
+
+.mobile-menu div {
+    width: 32px;
+    height: 2px;
+    background: #fff;
+    margin: 8px;
 }
