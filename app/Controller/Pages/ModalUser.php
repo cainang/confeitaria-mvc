@@ -15,6 +15,7 @@
 
             $json = [
                 'id' => $obBolos->ID,
+                'andares' => $obBolos->andares,
                 'nomedobolo' => $boloInfo->nome,
                 'categoria' => $boloInfo->categoria,
                 'preco' => $boloInfo->preco,

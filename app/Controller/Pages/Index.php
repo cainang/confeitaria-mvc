@@ -2,6 +2,7 @@
 
     namespace App\Controller\Pages;
 
+    use App\Controller\Pages\Components\Footer;
     use \App\Utils\View;
     use \App\Controller\Pages\ModalUser;
     use \App\Controller\Pages\Components\Navbar;
@@ -24,10 +25,9 @@
                 'alert' => $alert['alert'] ?? '',
                 'alertJs' => $alert['alertJs'] ?? '',
                 'navbar' => Navbar::getNavbar(),
+                'footer' => Footer::getFooter(),
                 'modaluser' => ModalUser::getModalUser(),
             ]);
         }
     
     }
-
-?>

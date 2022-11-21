@@ -76,7 +76,7 @@ function handleFilComp() {
 
     data_prevista = data_prevista.split('/')[2] + '-' + data_prevista.split('/')[1] + '-' + data_prevista.split('/')[0];
 
-    form.setAttribute('action', `?id=${id_bolo}&dataentrega=${data_prevista}&ingredientes=${JSON.stringify(ingredientes)}`);
+    form.setAttribute('action', `?id=${id_bolo}&dataentrega=${data_prevista}&ingredientes=${JSON.stringify(ingredientes)}&andares=${parseInt(andaresIndicator.innerText)}`);
 
 }
 

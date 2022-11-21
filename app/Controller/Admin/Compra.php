@@ -71,10 +71,11 @@ class Compra extends Index {
         $cep = $params['cep'];
         $bairro = $params['bairro'];
         $endereco = $params['endereco'];
+        $andares = $params['andares'];
 
         $id_cliente = SessionLogin::getId();
 
-        $obPedido = PedidosEntity::createPedido($data_entrega, $id_cliente, $id_bolo);
+        $obPedido = PedidosEntity::createPedido($data_entrega, $id_cliente, $id_bolo, $andares);
 
         if(!$obPedido instanceof PedidosEntity){
             return self::callAlert('Erro ao fazer pedido, por favor tente novamente!', 'erro', $request);
