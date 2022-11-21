@@ -3,7 +3,7 @@ function activateModalUser() {
 
   async function getPedidosJson() {
     try {
-      const dadosPedidos = await fetch("http://localhost/confeitaria-mvc/pedidos").then((response) => response.json());
+      const dadosPedidos = await fetch("https://worthcakes.desenvolvimentolocal.ce.gov.br/pedidos").then((response) => response.json());
 
       return dadosPedidos;
     } catch (error) {
@@ -54,7 +54,7 @@ function activateModalUser() {
 function activateModalPostComments() {
   async function postPedidosJson(data) {
     try {
-      const url = `http://localhost/confeitaria-mvc/comentarios?texto=${data}`;
+      const url = `https://worthcakes.desenvolvimentolocal.ce.gov.br/comentarios?texto=${data}`;
       const options = {
         method: "POST",
         headers: {
@@ -96,7 +96,7 @@ function activateModalPostComments() {
 function activateModalGetComments() {
   async function postPedidosJson(data) {
     try {
-      const url = `http://localhost/confeitaria-mvc/comentarios`;
+      const url = `https://worthcakes.desenvolvimentolocal.ce.gov.br/comentarios`;
       const options = {
         method: "GET",
         headers: {
