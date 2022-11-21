@@ -1,17 +1,14 @@
-<main>
-    {{navbar}}
-
-    <section id="content">
-        <img src="resources\img\bolo_mock.png" alt="Imagem de Bolo">
-        <h1>BOLOS PARA CASAMENTO :D</h1>
-    </section>
-
-    <section id="categoria">
-        <h1>BOLOS PRONTOS</h1>
-        <div id="cards">
-            {{cards}}
-        </div>
-    </section>
-
-    {{footer}}
+<main class="home_hero_container layut_lock_with">
+    <div class="home_hero_container_image">
+        <img src="resources\img\cat\{{categoria}}.webp" alt="Bolo de {{categoria}}">
+    </div>
+    <div class="home_hero_container_text">
+        <h1 class="font_family_title">Bolos de {{categoria}}!</h1>
+    </div>
 </main>
+<section id="categorias" class="home_categoria_container flex_center_justifyed-column layut_lock_with">
+    <h2 class="home_categoria_title  flex_center_justifyed-column font_family_title">Bolos Prontos</h2>
+    <div id="cards-cat">
+        {{cards}}
+    </div>
+</section>

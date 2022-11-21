@@ -1,16 +1,16 @@
-#content{
+#content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 25px;
 }
 
-#content img{
+#content img {
     /* height: 593px; */
     height: 550px;
 }
 
-#content h1{
+#content h1 {
     font-family: 'Limelight';
     font-style: normal;
     font-weight: 400;
@@ -26,7 +26,7 @@
     margin-block: 35px;
 }
 
-#categoria h1{
+#categoria h1 {
     font-family: 'Limelight';
     font-style: normal;
     font-weight: 400;
@@ -38,11 +38,103 @@
     padding: 30px 50px;
 }
 
-#categoria #cards{
+#cards-cat {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 20px;
     padding: 10px 80px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.home_hero_container {
+    margin-top: 10vh;
+    /* min-height: 100vh; */
+    display: grid;
+    grid-template-areas: "text" "image";
+    grid-template-rows: auto clamp(200px, 20%, 400px);
+    overflow: hidden;
+    /* display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center; */
+}
+
+.home_hero_container>div {
+    flex: 1;
+}
+
+.home_hero_container_image {
+    grid-area: image;
+    width: 100%;
+    height: 100%;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home_hero_container_image img {
+    width: 100%;
+}
+
+.home_hero_container_text {
+    grid-area: text;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.home_hero_container_text h1 {
+    font-size: var(--clamp-h1-title);
+}
+
+.home_hero_container_text_buttons {}
+
+@media screen and (min-width: 700px) {
+    .home_hero_container {
+        max-height: 90vh;
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10vh;
+    }
+
+    .home_hero_container_text {
+        text-align: left;
+        height: auto;
+        align-items: flex-start;
+    }
+
+    .home_hero_container_image {
+        max-width: none;
+    }
+}
+
+
+.home_categoria_container {
+    width: 100%;
+    padding: 1.25rem;
+    min-height: 70vh;
+    /* background-color: #a52a2a1c; */
+}
+
+.home_categoria_title {
+    color: var(--color_accent-primary);
+    font-size: var(--clamp-h2-title);
+    padding: 30px 0px;
+    text-align: center;
+}
+
+.home_categoria_cards {
+    gap: 1rem;
+    padding: 1rem;
     flex-wrap: wrap;
 }
