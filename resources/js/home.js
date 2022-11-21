@@ -21,7 +21,7 @@ function activateModalUser() {
         <div class="card bg-light mb-3">
             <div class="card-header" id="id"></div>
             <div class="card-body">
-                <p class="card-text"><small class="text-muted" id="nome"></small></p>
+                <p class="card-text"><small class="text-muted" id="nome"></small><small class="text-muted" id="andares"></small></p>
                 <p class="card-text" id="desc"></p>
                 <p class="card-text" id="cat"></p>
                 <h5 class="card-text" id="preco"></h5>
@@ -40,7 +40,8 @@ function activateModalUser() {
         const element = dados[key];
         HTMLBlock.body.querySelector(".card-header#id").innerHTML = "ID do pedido: " + element.id;
         HTMLBlock.body.querySelector(".card-body #desc").innerHTML = "Descrição: " + element.descricao;
-        HTMLBlock.body.querySelector(".card-body #nome").innerHTML = "Nome do bolo: " + element.nomedobolo;
+        HTMLBlock.body.querySelector(".card-body #nome").innerHTML = element.nomedobolo;
+        HTMLBlock.body.querySelector(".card-body #andares").innerHTML = " " + element.andares + " andares";
         HTMLBlock.body.querySelector(".card-body #cat").innerHTML = "Categoria: " + element.categoria;
         HTMLBlock.body.querySelector(".card-body #preco").innerHTML = "Preço: " + element.preco;
         HTMLBlock.body.querySelector(".card-footer #data").innerHTML = "Data de entrega: " + element.datadeentrega;

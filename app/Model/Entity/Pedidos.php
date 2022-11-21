@@ -10,20 +10,22 @@ class Pedidos {
     public $id_cliente;
     public $id_bolo;
     public $ativo;
+    public $andares;
 
     static public function getPedidosByUser($id) {
         return (new Database('PEDIDOS'))->select("id_cliente = '". $id ."'");
     }
 
-    static public function createPedido($data_entrega, $id_cliente, $id_bolo) {
-        $id;
+    static public function createPedido($data_entrega, $id_cliente, $id_bolo, $andares = '1') {
+        $id = '';
         
         try {
             $id = (new Database('PEDIDOS'))->insert([
                 'data_entrega' => $data_entrega,
                 'id_cliente' => $id_cliente,
                 'id_bolo' => $id_bolo,
-                'ativo' => true
+                'ativo' => true,
+                'andares' => $andares
             ]);
         } catch (\PDOException $th) {
             return false;
