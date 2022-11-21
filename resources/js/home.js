@@ -49,7 +49,7 @@ function activateModalUser() {
       }
     }
   }
-  botaoUsuario.addEventListener("click", ListarPedidos);
+  botaoUsuario && botaoUsuario.addEventListener("click", ListarPedidos);
 }
 function activateModalPostComments() {
   async function postPedidosJson(data) {
@@ -75,6 +75,7 @@ function activateModalPostComments() {
     let formData = new FormData(form);
     let data = formData.get("comentarios");
     let reuturndata = await postPedidosJson(data);
+    console.log(reuturndata);
     if (reuturndata != "Sucesso!") {
       document.querySelector("#rateUs .modal-footer").innerHTML = `<div class="alert alert-danger" role="alert">
         Algo deu errado
@@ -82,6 +83,7 @@ function activateModalPostComments() {
       setTimeout(() => {
         location.reload(true);
       }, 200);
+      return false;
     }
     document.querySelector("#rateUs .modal-footer").innerHTML += `<div class="alert alert-warning" role="alert">
         Suscesso ao cadastrar!
@@ -91,7 +93,8 @@ function activateModalPostComments() {
     }, 200);
   }
 
-  document.forms.comentarioUser.addEventListener("submit", formEvent);
+  //document.forms.comentarioUser.addEventListener("submit", formEvent);
+  document.querySelector('#buttonPost').onclick = formEvent;
 }
 function activateModalGetComments() {
   async function postPedidosJson(data) {
