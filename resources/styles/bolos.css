@@ -40,9 +40,9 @@
 
 #cards-cat {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 1rem;
     padding: 10px 80px;
     flex-wrap: wrap;
     width: 100%;
