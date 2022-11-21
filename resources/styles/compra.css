@@ -1,15 +1,17 @@
 #content{
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     margin-top: 25px;
     margin-bottom: 25px;
-    gap: 25px;
+    margin-right: 10vw;
 }
 
 #content img{
     /* height: 593px; */
     height: 34rem;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
 }
 
 #content #desc{

@@ -46,6 +46,7 @@ class Compra extends Index {
             'preco' => $obBolos->preco,
             'tempo' => $obBolos->tempo,
             'ingCard' => self::getIngCards(),
+            'imagem_url' => $obBolos->imagem_url,
             'modalEndereco' => ModalEndereco::getModalEndereco()
         ]);
         $css = View::getStyleView('compra');
