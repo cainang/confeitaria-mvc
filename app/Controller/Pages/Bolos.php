@@ -29,9 +29,8 @@
             }
             
             $content = View::render('pages/bolos', [
-                'navbar' => Navbar::getNavbar(),
-                'footer' => Footer::getFooter(),
-                'cards' => self::getBolosItens($params['categoria'])
+                'cards' => self::getBolosItens($params['categoria']),
+                'categoria'=> $params['categoria'],
             ]);
             $css = View::getStyleView('bolos');
 

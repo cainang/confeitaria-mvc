@@ -11,81 +11,137 @@
 </main>
 
 <section id="categorias" class="home_categoria_container flex_center_justifyed-column layut_lock_with">
-    <h2 class="home_categoria_title  flex_center_justifyed-column">CATEGORIAS DE BOLOS</h2>
+    <h2 class="home_categoria_title  flex_center_justifyed-column font_family_title">CATEGORIAS DE BOLOS</h2>
     <div class="home_categoria_cards flex_center_justifyed-row">
         <div class="home_categoria_card_categoria flex_center_justifyed-column">
             <div class="home_categoria_card_categoria_img">
-                <img src="https://th.bing.com/th/id/OIP.Vdq96L_bcZvpgOtaYvwJugHaLH?pid=ImgDet&rs=1" alt="" srcset="">
+                <a href="bolos?categoria=casamento">
+                    <img src="resources\img\bolos\bolo_casamento2_ 1-1.webp" alt="Bolos de casamento" srcset=""
+                        href="google.com">
+                </a>
             </div>
             <h3 class="home_categoria_card_categoria_title">
-                TITULO
+                CASAMENTO
             </h3>
-            <p class="home_categoria_card_categoria_content">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus, recusandae praesentium
-                assumenda aspernatur accusantium deserunt commodi porro reprehenderit harum quas aliquam. A, similique.
-            </p>
         </div>
         <div class="home_categoria_card_categoria flex_center_justifyed-column">
             <div class="home_categoria_card_categoria_img">
-                <img src="https://th.bing.com/th/id/OIP.Vdq96L_bcZvpgOtaYvwJugHaLH?pid=ImgDet&rs=1" alt="" srcset="">
+                <a href="bolos?categoria=Aniversário">
+                    <img src="resources\img\bolos\bolo_lol_surprise_1-1.webp" alt="Bolos de aniversário" srcset="">
+                </a>
             </div>
             <h3 class="home_categoria_card_categoria_title">
-                TITULO
+                ANIVERSÁRIO
             </h3>
-            <p class="home_categoria_card_categoria_content">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus, recusandae praesentium
-                assumenda aspernatur accusantium deserunt commodi porro reprehenderit harum quas aliquam. A, similique.
-            </p>
         </div>
         <div class="home_categoria_card_categoria flex_center_justifyed-column">
             <div class="home_categoria_card_categoria_img">
-                <img src="https://th.bing.com/th/id/OIP.Vdq96L_bcZvpgOtaYvwJugHaLH?pid=ImgDet&rs=1" alt="" srcset="">
+                <a href="bolos?categoria=cha">
+                    <img src="resources\img\bolos\bolo_cha2_ 1_1.webp" alt="Bolos de chá de bebe" srcset="">
+                </a>
             </div>
             <h3 class="home_categoria_card_categoria_title">
-                TITULO
+                CHÁ
             </h3>
-            <p class="home_categoria_card_categoria_content">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus, recusandae praesentium
-                assumenda aspernatur accusantium deserunt commodi porro reprehenderit harum quas aliquam. A, similique.
-            </p>
         </div>
         <div class="home_categoria_card_categoria flex_center_justifyed-column">
             <div class="home_categoria_card_categoria_img">
-                <img src="https://th.bing.com/th/id/OIP.Vdq96L_bcZvpgOtaYvwJugHaLH?pid=ImgDet&rs=1" alt="" srcset="">
+                <a href="bolos?categoria=cupcake">
+                    <img src="resources\img\bolos\capcake2_1-1.webp" alt="CUPCAKES" srcset="">
+                </a>
             </div>
             <h3 class="home_categoria_card_categoria_title">
-                TITULO
+                CUPCAKES
             </h3>
-            <p class="home_categoria_card_categoria_content">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus, recusandae praesentium
-                assumenda aspernatur accusantium deserunt commodi porro reprehenderit harum quas aliquam. A, similique.
-            </p>
         </div>
     </div>
 </section>
 <section id="equipe" class="home_avaliacao_container flex_center_justifyed-column layut_lock_with">
-    <h2 class="home_avaliacao_title  flex_center_justifyed-column">AVALIAÇÕES DE CLIENTES</h2>
+    <h2 class="home_avaliacao_title  flex_center_justifyed-column font_family_title">AVALIAÇÕES DE CLIENTES</h2>
     <div class="home_avaliacao_people_container">
-        <div class="home_avaliacao_people_container_image"></div>
-        <div class="home_avaliacao_people_container_image"></div>
-        <div class="home_avaliacao_people_container_image"></div>
+        <p class="home_avaliacao_comentario">
+            {{comentario}}
+        </p>
     </div>
-    <p class="home_avaliacao_comentario">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam ducimus perferendis ab voluptatibus sint.
-        Reiciendis?
-    </p>
-    <div class="home_avaliacao_nome"> Lorem, ipsum.</div>
+    <div class="home_avaliacao_people_container">
+        <button class="button_confeitaria " id="ratesUsersBTN" data-toggle='modal' data-target='#ratesUsers'>Ver
+            mais</button>
+        <button class="button_confeitaria " data-toggle='modal' data-target='#rateUs'>Deixa um comentário</button>
+    </div>
 </section>
 <section class="home_integrantes_container flex_center_justifyed-column layut_lock_with">
     <div class="home_integrantes_text">
-        <h2>A&nbsp;GENTE</h2>
+        <h2 class="font_family_title text-white">A&nbsp;GENTE</h2>
         <p>SOMOS UMA EQUIPE DISCIPLINADA :)</p>
     </div>
     <div class="home_integrantes_pessoas  ">
-        <div class="home_integrantes_pessoa"></div>
-        <div class="home_integrantes_pessoa"></div>
-        <div class="home_integrantes_pessoa"></div>
-        <div class="home_integrantes_pessoa"></div>
-        <div class="home_integrantes_pessoa"></div>
+        <div class="home_integrantes_pessoa">
+            <img src="resources\img\equipe\caina.jpg" alt="Cainã">
+        </div>
+        <div class="home_integrantes_pessoa">
+            <img src="resources\img\equipe\marlon.jpg" alt="Marlon">
+        </div>
+        <div class="home_integrantes_pessoa">
+            <img src="resources\img\equipe\miguel.jpg" alt="Miguel">
+        </div>
+        <div class="home_integrantes_pessoa">
+            <img src="resources\img\equipe\heloisa.jpg" alt="Heloisa">
+        </div>
+        <div class="home_integrantes_pessoa">
+            <img src="resources\img\equipe\eduardo.jpg" alt="Eduardo">
+        </div>
     </div>
 </section>
+
+<div class="modais_main_container_no_styling">
+    <div class="modal" tabindex="-1" role="dialog" id="ratesUsers">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title ">Comentários de outras pesosoas</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="height: 70vh;overflow: auto;">
+                    <div class="cardsScroll">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="rateUs">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <form id="comentarioUser">
+                    <div class="modal-header">
+                        <h5 class="modal-title ">Por favor deixe um comentário</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="overflow: auto;">
+
+                        <div class="form-group">
+                            <label for="nomedousuario">Máximo 100 letras: </label>
+                            <textarea name="comentarios" class="form-control" aria-label="With textarea" maxlength="100"
+                                required></textarea>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="submit" class="btn btn-primary color-primary">
+                            <a style="color: white !important;">Enviar comentário</a>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

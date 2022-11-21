@@ -35,5 +35,15 @@
             return new Response(200, Pages\ModalUser::getBolosItens());
         }
     ]);
+    $obRouter->get('/comentarios', [
+        function(){
+            return new Response(200, Pages\Comentarios::getComentariosItens());
+        }
+    ]);
+    $obRouter->post('/comentarios', [
+        function($request){
+            return new Response(200, Pages\Comentarios::postComentariosItens($request));
+        }
+    ]);
 
 ?>
